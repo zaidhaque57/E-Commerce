@@ -1,0 +1,291 @@
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+    "email": "zaid@example.com",
+    "password": "123456"
+}
+
+###
+
+GET http://localhost:8080/api/users/me
+Authorization: Bearer PASTE_YOUR_TOKEN_HERE
+
+
+### LOGIN
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+    "email": "zaid@example.com",
+    "password": "123456"
+}
+
+###
+
+### CURRENT USER
+GET http://localhost:8080/api/users/me
+Authorization: Bearer PASTE_YOUR_TOKEN_HERE
+
+
+### REGISTER NEW USER
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+    "name": "Zaid Test",
+    "email": "zaidtest@example.com",
+    "password": "123456",
+    "role": "CUSTOMER"
+}
+
+###
+
+### LOGIN NEW USER
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+    "email": "zaidtest@example.com",
+    "password": "123456"
+}
+
+###
+
+### GET CURRENT USER
+GET http://localhost:8080/api/users/me
+Authorization: Bearer  eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ6YWlkdGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTIxNTA4MSwiZXhwIjoxNzg5MjE4NjgxfQ.TqRw3OZQh9XeYB-heazH9VeYGt35rpalJgsz3f-4qrDRQGOLs0O6dDa8MWtwKYmz
+
+
+{
+    "items": [
+        {
+            "id": 1,
+            "productId": 1,
+            "productName": "MacBook Air M1",
+            "price": 79999,
+            "quantity": 2,
+            "subtotal": 159998
+        }
+    ],
+    "totalItems": 2,
+    "totalPrice": 159998
+}
+
+POST http://localhost:8080/api/cart/add?productId=1&quantity=2
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ6YWlkdGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTIxNTA4MSwiZXhwIjoxNzg5MjE4NjgxfQ.TqRw3OZQh9XeYB-heazH9VeYGt35rpalJgsz3f-4qrDRQGOLs0O6dDa8MWtwKYmz
+
+POST http://localhost:8080/api/orders/checkout
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ6YWlkdGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTIxNTA4MSwiZXhwIjoxNzg5MjE4NjgxfQ.TqRw3OZQh9XeYB-heazH9VeYGt35rpalJgsz3f-4qrDRQGOLs0O6dDa8MWtwKYmz
+
+
+GET http://localhost:8080/api/orders
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ6YWlkdGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTIxNTA4MSwiZXhwIjoxNzg5MjE4NjgxfQ.TqRw3OZQh9XeYB-heazH9VeYGt35rpalJgsz3f-4qrDRQGOLs0O6dDa8MWtwKYmz
+
+
+GET http://localhost:8080/api/orders/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ6YWlkdGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTIxNTA4MSwiZXhwIjoxNzg5MjE4NjgxfQ.TqRw3OZQh9XeYB-heazH9VeYGt35rpalJgsz3f-4qrDRQGOLs0O6dDa8MWtwKYmz
+
+
+
+### ADMIN LOGIN
+
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+    "email": "admin@ecommerce.com",
+    "password": "admin123"
+}
+
+
+### ADMIN DASHBOARD
+
+GET http://localhost:8080/api/admin/dashboard
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBlY29tbWVyY2UuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg5MjQxMzg3LCJleHAiOjE3ODkyNDQ5ODd9.VTeBultmbXL11e2DW7ecsVua6K2SOWHoAx08f7B7yYdL4_59ee2PFd_nCMDwjRHg
+
+
+
+### ADMIN - ALL ORDERS
+
+GET http://localhost:8080/api/admin/orders
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBlY29tbWVyY2UuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg5MjQxMzg3LCJleHAiOjE3ODkyNDQ5ODd9.VTeBultmbXL11e2DW7ecsVua6K2SOWHoAx08f7B7yYdL4_59ee2PFd_nCMDwjRHg
+
+
+
+### ADMIN - CREATE PRODUCT
+POST http://localhost:8080/api/admin/products
+Authorization: Bearer PASTE_ADMIN_TOKEN_HERE
+Content-Type: application/json
+
+{
+    "name": "MacBook Air M1",
+    "description": "Apple MacBook Air with M1 chip",
+    "price": 79999,
+    "stock": 10,
+    "imageUrl": "https://example.com/macbook.jpg",
+    "category": {
+        "id": 1
+    }
+}
+
+
+### ADMIN - GET ALL PRODUCTS
+GET http://localhost:8080/api/admin/products
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBlY29tbWVyY2UuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg5MjQxMzg3LCJleHAiOjE3ODkyNDQ5ODd9.VTeBultmbXL11e2DW7ecsVua6K2SOWHoAx08f7B7yYdL4_59ee2PFd_nCMDwjRHg
+
+
+### ADMIN - UPDATE PRODUCT
+PUT http://localhost:8080/api/admin/products/1
+Authorization: Bearer  eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBlY29tbWVyY2UuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg5MjQxMzg3LCJleHAiOjE3ODkyNDQ5ODd9.VTeBultmbXL11e2DW7ecsVua6K2SOWHoAx08f7B7yYdL4_59ee2PFd_nCMDwjRHg
+Content-Type: application/json
+
+{
+    "name": "MacBook Air M1 Updated",
+    "description": "Apple MacBook Air M1 8GB RAM",
+    "price": 74999,
+    "stock": 15,
+    "imageUrl": "https://example.com/macbook-updated.jpg",
+    "category": {
+        "id": 1
+    }
+}
+
+POST http://localhost:8080/api/admin/products
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ6YWlkdGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTI0Mjk5NCwiZXhwIjoxNzg5MjQ2NTk0fQ.FrmnlvXfl27qeeQsquqSRKvjbHb8uU2f77U_tpbRFZ6B8pRF52n7iYj7v-Mj6ljG
+Content-Type: application/json
+
+{
+    "name": "Test Product",
+    "description": "Testing security",
+    "price": 1000,
+    "stock": 5
+}
+
+
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+    "email": "zaidtest@example.com",
+    "password": "123456"
+}
+
+
+POST http://localhost:8080/api/addresses
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ6YWlkdGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTI0NjA1NiwiZXhwIjoxNzg5MjQ5NjU2fQ.wXPOfGmyGGQAlVspc4smeFEZ94pjgQFHWPZ0q3mYG4M7rTavg0D6MQaz0jhU47lX
+Content-Type: application/json
+
+{
+    "fullName": "Zaid Haque",
+    "phone": "9876543210",
+    "addressLine": "123 Main Road",
+    "city": "Muzaffarpur",
+    "state": "Bihar",
+    "postalCode": "842001",
+    "country": "India",
+    "defaultAddress": true
+}
+
+
+POST http://localhost:8080/api/cart/add?productId=1&quantity=2
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ6YWlkdGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTI0NjA1NiwiZXhwIjoxNzg5MjQ5NjU2fQ.wXPOfGmyGGQAlVspc4smeFEZ94pjgQFHWPZ0q3mYG4M7rTavg0D6MQaz0jhU47lX
+
+
+POST http://localhost:8080/api/orders/checkout
+Authorization: Bearer PASTE_CUSTOMER_TOKEN_HERE
+Content-Type: application/json
+
+{
+    "addressId": 1
+}
+
+POST http://localhost:8080/api/payments/order/2
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ6YWlkdGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTI0NjA1NiwiZXhwIjoxNzg5MjQ5NjU2fQ.wXPOfGmyGGQAlVspc4smeFEZ94pjgQFHWPZ0q3mYG4M7rTavg0D6MQaz0jhU47lX
+Content-Type: application/json
+
+{
+    "paymentMethod": "UPI",
+    "paymentResult": "SUCCESS"
+}
+
+
+POST http://localhost:8080/api/admin/products
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBlY29tbWVyY2UuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg5MzIxMTAwLCJleHAiOjE3ODkzMjQ3MDB9.gjq59eUagcHZaQ3orV_P2RU9VJwb1cnkjSX376ibC9NvPsWUOL--ff037EorilQq
+Content-Type: application/json
+
+{
+    "name": "MacBook Air M1",
+    "description": "Apple MacBook Air with M1 chip",
+    "price": 79999,
+    "stock": 10,
+    "imageUrl": "/uploads/macbook.jpg",
+    "categoryId": 1
+}
+
+POST http://localhost:8080/api/admin/products/upload-image
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBlY29tbWVyY2UuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg5MzIxMTAwLCJleHAiOjE3ODkzMjQ3MDB9.gjq59eUagcHZaQ3orV_P2RU9VJwb1cnkjSX376ibC9NvPsWUOL--ff037EorilQq
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="macbook.jpg"
+Content-Type: image/jpeg
+
+< ./macbook.jpg
+--WebAppBoundary--
+
+{
+    "imageUrl": "/uploads/image.txt/https://www.apple.com/newsroom/images/product/mac/standard/Apple_new-macbookair-wallpaper-screen_11102020_big.jpg.large.jpg"
+}
+
+
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+    "email": "admin@ecommerce.com",
+    "password": "admin123"
+}
+
+
+GET http://localhost:8080/api/admin/dashboard
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBlY29tbWVyY2UuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg5MzIxNzQwLCJleHAiOjE3ODkzMjUzNDB9.1uqGLApHYkVwAErOAgWze7ak__8M2YoaXoUPhNXIGXgKlh6A6rE16yYdqidZH6Yx
+
+
+GET http://localhost:8080/api/admin/dashboard
+
+
+GET http://localhost:8080/api/admin/analytics/top-products?limit=5
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBlY29tbWVyY2UuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg5MzIxNzQwLCJleHAiOjE3ODkzMjUzNDB9.1uqGLApHYkVwAErOAgWze7ak__8M2YoaXoUPhNXIGXgKlh6A6rE16yYdqidZH6Yx
+
+
+### REVENUE ANALYTICS
+
+GET http://localhost:8080/api/admin/analytics/revenue?days=7
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBlY29tbWVyY2UuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg5MzIxNzQwLCJleHAiOjE3ODkzMjUzNDB9.1uqGLApHYkVwAErOAgWze7ak__8M2YoaXoUPhNXIGXgKlh6A6rE16yYdqidZH6Yx
+
+
+
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+    "name": "Zaid Test",
+    "email": "zaidtest1@example.com",
+    "password": "123456"
+}
+
+
+
+
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+    "email": "zaidtest1@example.com",
+    "password": "123456"
+}
+
+
+GET http://localhost:8080/api/users/me
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ6YWlkdGVzdDFAZXhhbXBsZS5jb20iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3ODkzMjMyNjEsImV4cCI6MTc4OTMyNjg2MX0.XzGbxWUMyoI6skTFkMlyNA2fnZCdCt_Qwhxa85s4xjm9-jUTgnJX2MNU66UBASq1
